@@ -26,6 +26,8 @@ import android.os.Parcelable;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.google.common.base.Strings;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -51,7 +53,7 @@ public class Extras implements Parcelable {
 
     @Nullable
     public static Extras mayParse(@Nullable String data, @NonNull PluginDataFormat format, int version) throws IllegalStorageDataException {
-        if (data == null)
+        if (Strings.isNullOrEmpty(data))
             return null;
         return new Extras(data, format, version);
     }
