@@ -39,6 +39,7 @@ before_install:
 
 install:
   - sdkmanager --list || true
+  - echo yes | sdkmanager "system-images;android-{EMULATOR_API};google_apis;${ABI} #&> /dev/null
   - echo yes | sdkmanager "extras;m2repository;com;android;support;constraint;constraint-layout;1.0.2" #&> /dev/null
   - echo yes | sdkmanager "extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.2" #&> /dev/null
   - avdmanager --list || true # See below "avdmanager"
