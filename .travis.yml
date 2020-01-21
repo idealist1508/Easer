@@ -45,6 +45,7 @@ install:
 
 before_script:
     #  - echo no | avdmanager create avd -n test -k android-${EMULATOR_API} -f --abi ${ABI} --tag "$TAG"
+  - android list targets
   - echo no | android create avd --force -n test -t android-${EMULATOR_API} --abi ${ABI} # avdmanager is not available (?) (see https://github.com/travis-ci/packer-templates/issues/482 )
   - emulator -avd test -no-audio -no-window &
   - android-wait-for-emulator
